@@ -1,0 +1,14 @@
+ul > li {
+    color: white;
+    a {
+        color: aliceblue;
+        &:not(#logo):hover {
+            background-color: white;
+            color: #1e87f0
+        }
+    }
+}
+
+#logo {
+    font-size: 1.5em
+}
