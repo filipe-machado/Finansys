@@ -1,3 +1,82 @@
-<p>
-  category-list works!
-</p>
+<nav class="uk-margin-medium-bottom">
+  <ol class="uk-breadcrumb">
+    <li><a class="uk-text-primary" routerLink='/' routerLinkActive="uk-active">Home</a></li>
+    <li class="uk-active">Categorias</li>
+  </ol>
+</nav>
+
+<div class="uk-grid uk-child-width-expand@s uk-margin-medium-bottom" uk-grid>
+  <div>
+    <h1 class="uk-heading-bullet">Categorias</h1>
+  </div>
+  <div>
+    <a routerLink="new" class="uk-button uk-button-primary uk-float-right">+ Nova categoria</a>
+  </div>
+</div>
+
+<table class="uk-table uk-table-divider uk-text-light uk-table-hover">
+    <thead>
+        <tr>
+            <th>Categorias</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div>
+            <strong>Lazer</strong>
+          </div>
+          <div>
+            <small>Cinema, Park, etc</small>
+          </div>
+        </td>
+        <td>
+          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <strong>Lazer</strong>
+          </div>
+          <div>
+            <small>Cinema, Park, etc</small>
+          </div>
+        </td>
+        <td>
+          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <strong>Lazer</strong>
+          </div>
+          <div>
+            <small>Cinema, Park, etc</small>
+          </div>
+        </td>
+        <td>
+          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <strong>Lazer</strong>
+          </div>
+          <div>
+            <small>Cinema, Park, etc</small>
+          </div>
+        </td>
+        <td>
+          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
