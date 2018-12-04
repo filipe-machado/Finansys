@@ -2,7 +2,7 @@
   <ol class="uk-breadcrumb">
     <li><a class="uk-text-primary" routerLink='/' routerLinkActive="uk-active">Home</a></li>
     <li><a class="uk-text-primary" routerLink='/categories' routerLinkActive="uk-active">Categorias</a></li>
-    <li class="uk-active">Formulário de categorias</li>
+    <li class="uk-active">Formulário de categorias {{ currentAction }}</li>
   </ol>
 </nav>
 
@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<form>
+<form [formGroup]='categoryForm'>
 
   <div>
     <div class="uk-card uk-card-default">
