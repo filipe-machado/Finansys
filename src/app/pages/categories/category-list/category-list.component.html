@@ -22,60 +22,18 @@
         </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let category of categories">
         <td>
           <div>
-            <strong>Lazer</strong>
+            <strong>{{category.name}}</strong>
           </div>
           <div>
-            <small>Cinema, Park, etc</small>
-          </div>
-        </td>
-        <td>
-          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
-          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>
-            <strong>Lazer</strong>
-          </div>
-          <div>
-            <small>Cinema, Park, etc</small>
+            <small>{{category.description}}</small>
           </div>
         </td>
         <td>
-          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
-          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>
-            <strong>Lazer</strong>
-          </div>
-          <div>
-            <small>Cinema, Park, etc</small>
-          </div>
-        </td>
-        <td>
-          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
-          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>
-            <strong>Lazer</strong>
-          </div>
-          <div>
-            <small>Cinema, Park, etc</small>
-          </div>
-        </td>
-        <td>
-          <a href="" [routerLink]="[12, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
-          <button href="" (click)="alert('Excluir')" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+          <a href="" [routerLink]="[category.id, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="deleteCategory(category)" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
         </td>
       </tr>
     </tbody>
