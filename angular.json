@@ -55,9 +55,9 @@
               "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [
-              "node_modules/uikit/src/js/uikit.js",
-              "node_modules/uikit/src/js/icons.js",
-              "node_modules/uikit/src/js/uikit-core.js",
+              "node_modules/uikit/dist/js/uikit.min.js",
+              "node_modules/uikit/dist/js/icons.min.js",
+              "node_modules/uikit/dist/js/uikit-core.min.js",
               "node_modules/chart.js/dist/Chart.bundle.js"
             ]
           },
