@@ -43,6 +43,17 @@ export class CategoryFormComponent implements OnInit {
     this.setPageTitle();
   }
 
+  submitForm() {
+    this.submittingForm = true; // O formulário está sendo enviado
+    
+    // se está editando ou criando uma nova categoria
+    if(this.currentAction == "new") {
+      this.createCategory();
+    } else {
+      this.updateCategory();
+    }
+  }
+
   // PRIVATE METHODS
 
   private setCurrentAction() {
@@ -84,6 +95,51 @@ export class CategoryFormComponent implements OnInit {
       const categoryName = this.category.name || '';
       this.pageTitle = 'Editando Categoria: ' + categoryName;
     }
+    }
+
+  private createCategory() { 
+    // Criando um objeto Category novo, que será atribuido à ele os valores de categoryForm (utilizando o Object.assign), o resultado será atribuido à constante criada
+    const category: Category = Object.assign(new Category(), this.categoryForm.value);
+
+    this.categoryService.create(category) // Passando o objeto que foi criado
+    .subscribe( // Subscrevendo o objeto
+      category => this.actionsForSuccess(category), 
+      error => this.actionsForError(error)
+    )
   }
 
+  private updateCategory() {
+    const category: Category = Object.assign(new Category(), this.categoryForm.value);
+    
+    this.categoryService.update(category)
+    .subscribe( // Subscrevendo o objeto
+      category => this.actionsForSuccess(category), 
+      error => this.actionsForError(error)
+    )
+  }
+
+  private actionsForSuccess(category: Category) {
+    toastr.success("Solicitação processada com sucesso!");
+
+    /* retorna uma Promise
+    ** param1: redireciona rapidamente a rota de forma forçada para a url passada 
+    ** param2: não passa a url para o histórico do navegador, ou seja, não retornará para essa página naturalmente
+    ** função: then() aguarda a resposta da Promise e retorna uma função passando as rotas dentro do array
+    */
+    this.router.navigateByUrl("categories", {skipLocationChange: true}).then( 
+      () => this.router.navigate(["categories", category.id, "edit"])
+    )
+  }
+
+  private actionsForError(error) {
+    toastr.error("Ocorreu um erro ao processa sua solicitação!");
+
+    this.submittingForm = false;
+
+    if(error.status === 422) {
+      this.serverErrorMessages = JSON.parse(error._body).errors;
+    } else {
+      this.serverErrorMessages = ["Falha na comunicação com o servidor. Tente mais tarde."];
+    }
+  }
 }
