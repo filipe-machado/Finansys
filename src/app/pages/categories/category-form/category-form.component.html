@@ -48,8 +48,18 @@
     
     </div>
 
+    <div class="uk-card-body uk-grid" uk-grid *ngIf="serverErrorMessages">
+      <div class="uk-alert-danger uk-width-1-3" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <strong>Erro no servidor:</strong>
+        <ul>
+          <li *ngFor="let error of serverErrorMessages">{{ error }}</li>
+        </ul>
+      </div>
+    </div>
+
       <!-- desativa o botão quando o formulário estiver sendo submetido ou quanto o formulário tiver informações inválidas -->
-      <button [disabled]="submittingForm || categoryForm.invalid" type="submit" class="uk-button uk-button-primary uk-margin-medium-top uk-float-right">Salvar</button>
+      <button [disabled]="submittingForm || categoryForm.invalid" type="submit" class="uk-button uk-button-primary uk-margin-medium-top uk-margin-medium-bottom uk-float-right">Salvar</button>
   </div>
   
 </form>
