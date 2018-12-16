@@ -1,0 +1,56 @@
+<nav class="uk-margin-medium-bottom">
+  <ol class="uk-breadcrumb">
+    <li><a class="uk-text-primary" routerLink='/' routerLinkActive="uk-active">Home</a></li>
+    <li class="uk-active">Lançamentos</li>
+  </ol>
+</nav>
+
+<div class="uk-grid uk-child-width-expand@s uk-margin-medium-bottom" uk-grid>
+  <div>
+    <h1 class="uk-heading-bullet">Lançamentos</h1>
+  </div>
+  <div>
+    <a routerLink="new" class="uk-button uk-button-primary uk-float-right"><span uk-icon="plus"></span> Nova lançamento</a>
+  </div>
+</div>
+
+<table class="uk-table uk-table-divider uk-text-light uk-table-hover">
+    <thead>
+        <tr>
+            <th>Lançamento</th>
+            <th>Categoria</th>
+            <th class="text--align--right">Valor R$</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries">
+        <td>
+          <div class="uk-text-success">
+            <strong>{{entry.name}}</strong>
+          </div>
+          <div>
+            <small>{{entry.date}}</small>
+          </div>
+          <div *ngIf="entry.description">
+            <small>{{entry.description}}</small>
+          </div>
+        </td>
+        <td>
+          {{ entry.category.name }}
+        </td>
+        <td class="text--align--right">
+          <strong [class.uk-text-success]="entry.type == 'revenue'" [class.uk-text-danger]="entry.type == 'expense'">
+              {{ entry.amount }}
+          </strong>
+          <div>
+            <span class="uk-badge badge--light">{{ entry.paidText }}</span>
+          </div>
+        </td>
+        <td>
+          <a href="" [routerLink]="[entry.id, 'edit']" class="uk-button uk-button-primary uk-button-small">Editar</a>
+          <button href="" (click)="deleteEntry(entry)" class="uk-button uk-button-danger uk-button-small uk-margin-small-left">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+thead {
+    background-color: rgba(8, 113, 250, 0.7);
+    th {
+        color: aliceblue
+    }
+}
+
+.uk-breadcrumb {
+    background-color: aliceblue;
+    padding: .5em
+}
+
+.uk-table-hover tbody tr:hover {
+    background-color: rgba(190, 190, 190, 0.4);
+}
+
+/* classe não existe no UIKIT */
+.badge--light {
+    background: rgba(190, 190, 190, 0.4);
+    color: rgba(0, 0, 0, 0.4)
+}
+
+.text--align--right {
+    text-align: right;
+    padding-right: 4rem
+}
